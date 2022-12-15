@@ -7,3 +7,6 @@ Neste projeto, eu utilizei o `NextJS` e o `Leaflet` para renderizar um mapa, al√
 1. Fa√ßa o `git clone` do projeto
 2. Execute o comando `npm install`
 3. Execute o comando `npm run dev`
+
+## Acesse agora
+https://maps-in-next.netlify.app/
