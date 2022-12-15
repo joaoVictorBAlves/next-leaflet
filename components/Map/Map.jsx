@@ -1,6 +1,7 @@
 import "leaflet/dist/leaflet.css"
-import { MapContainer, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import Style from "../../styles/Home.module.css"
+import data from "../../data/fortaleza"
 
 const Map = () => {
     return (
@@ -9,6 +10,7 @@ const Map = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
+            <GeoJSON data={data} />
         </MapContainer>
     );
 }
