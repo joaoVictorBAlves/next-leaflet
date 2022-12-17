@@ -5,7 +5,7 @@ import Style from "../styles/Home.module.css"
 const Home = () => {
   return (
     <div className={Style.Container}>
-      <h1>Fortaleza - CE</h1>
+      <h1>Municípios do Ceará</h1>
       <Map />
       <Footer />
     </div>

@@ -29,7 +29,7 @@ const Map = () => {
         const name = city.properties.name
         const value = city.properties.value
 
-        layer.bindPopup(name + " - value " + value)
+        layer.bindPopup(name + " - " + value)
 
         switch (value) {
             case 10:
@@ -54,8 +54,8 @@ const Map = () => {
             zoom={6.5} // initial zoom required
             preferCanvas
             maxZoom={20} // required
-            minZoom={3} // required
-            center={[-5.2, -38.5434]}
+            minZoom={1} // required
+            center={[-5.2, -39]}
         // Other map props...
         >
             {/* <TileLayer
