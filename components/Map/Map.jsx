@@ -13,17 +13,39 @@ const Map = () => {
         color: "black",
         weight: 1,
     };
+    const onCityClick = (event) => {
+        event.target.setStyle({
+            fillColor: "yellow"
+        });
+    }
+
+    const changeCityColor = (event) => {
+        event.target.setStyle({
+            fillColor: "yellow"
+        });
+    }
 
     const handdleOnEachCity = (city, layer) => {
         const name = city.properties.name
         const value = city.properties.value
 
         layer.bindPopup(name + " - value " + value)
-        layer.on({
-            click: (event) => {
-              console.log(event)  
-            },
-        })
+
+        switch (value) {
+            case 10:
+                layer.options.fillColor = "orange"
+                break;
+            case 100:
+                layer.options.fillColor = "red"
+                break;
+            default:
+                break;
+        }
+
+        // layer.on({
+        //     click: changeCityColor,
+        // })
+
     }
 
     return (
