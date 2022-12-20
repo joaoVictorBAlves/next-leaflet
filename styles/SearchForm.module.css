@@ -1,0 +1,13 @@
+.form {
+    margin: auto;
+    padding: 20px;
+}
+
+.form label {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.form button {
+    margin: 10px;
+}
