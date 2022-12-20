@@ -2,15 +2,15 @@ import Style from "../../styles/SearchForm.module.css"
 
 const SearchForm = () => {
     return (
-        <form className={Style.form}>
+        <form method="POST" action="/api/search" className={Style.form}>
             <label htmlFor="country">País:</label>
-            <input type="text" />
+            <input name="country" type="text" />
             <label htmlFor="state">Estado:</label>
-            <input type="text" />
+            <input name="state" type="text" />
             <label htmlFor="city">Cidade:</label>
-            <input type="text" />
+            <input name="city" type="text" />
             <label htmlFor="street">Rua:</label>
-            <input type="text" />
+            <input name="street" type="text" />
             <button>Pesquisar</button>
         </form>
     );
