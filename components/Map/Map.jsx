@@ -44,7 +44,7 @@ const Map = ({ zoom, lat, lon, geojsons }) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {geojsons.map((geojson) => (
-                <GeoJSON style={citiesStyle} data={geojson} onEachFeature={handdleOnEachCity} />
+                <GeoJSON key={1} style={citiesStyle} data={geojson} onEachFeature={handdleOnEachCity} />
             ))}
         </MapContainer>
     );
