@@ -1,6 +1,6 @@
 .form {
+    width: 100%;
     margin: auto;
-    padding: 20px;
 }
 
 .form label {
@@ -8,6 +8,32 @@
     margin-left: 10px;
 }
 
+.form input {
+    padding: 5px;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 6px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
 .form button {
+    padding: 10px;
+    background-color: rgb(15, 15, 217);
+    border: none;
+    border-radius: 6px;
+    color: aliceblue;
     margin: 10px;
 }
+
+@media (max-width: 550px) {
+    .form input {
+      display: block;
+      width: 98%;
+    }
+    .form button {
+        width: 100%;
+        padding: 8px;
+        margin: 10px auto;
+        text-align: center;
+    }
+  }
