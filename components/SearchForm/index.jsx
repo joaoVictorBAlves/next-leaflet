@@ -1,8 +1,8 @@
 import Style from "../../styles/SearchForm.module.css"
 
-const SearchForm = () => {
+const SearchForm = ({handleForm}) => {
     return (
-        <form method="POST" action="/api/search" className={Style.form}>
+        <form onSubmit={handleForm} className={Style.form}>
             <input name="country" type="text" placeholder="País" />
             <input name="state" type="text" placeholder="Estado" />
             <input name="city" type="text" placeholder="Cidade" />
