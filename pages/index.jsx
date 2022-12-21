@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [geojsons, setGeojsons] = useState([])
+  const [position, setPosition] = useState([0, 0])
+  const [address, setAddress] = useState("")
+  const [zoom, setZoom] = useState(1)
 
   const handleForm = async (event) => {
     event.preventDefault();
@@ -23,13 +26,25 @@ const Home = () => {
 
         return data;
       })
-    setGeojsons([...geojsons, data])
+    if (data) {
+      setGeojsons([...geojsons, data[0].geojson])
+      setPosition([data[0].lat, data[0].lon])
+      setAddress(data[0].address)
+      if (data[0].address.country)
+        setZoom(5)
+      if (data[0].address.state)
+        setZoom(10)
+      if (data[0].address.city || data[0].address.town)
+        setZoom(15)
+      if (data[0].address.street)
+        setZoom(20)
+    }
   }
 
   return (
     <div className={Style.Container}>
       <SearchForm handleForm={handleForm} />
-      <Map zoom={1} lat={-5.2} lon={-39} geojsons={geojsons} />
+      <Map zoom={zoom} lat={position[0]} lon={position[1]} geojsons={geojsons} address={address} />
     </div>
   );
 }

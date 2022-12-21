@@ -1,7 +1,7 @@
-// https://nominatim.openstreetmap.org/search?state={state}&format=geojson&polygon_geojson=1
-// https://nominatim.openstreetmap.org/search?country={country}&format=geojson&polygon_geojson=1
-// https://nominatim.openstreetmap.org/search?city={city}&format=geojson&polygon_geojson=1
-// https://nominatim.openstreetmap.org/search?city=uruburetama&street=travessa_major_sales&format=geojson&polygon_geojson=1
+// https://nominatim.openstreetmap.org/search?state={state}&polygon_geojson=1
+// https://nominatim.openstreetmap.org/search?country={country}&polygon_geojson=1
+// https://nominatim.openstreetmap.org/search?city={city}&polygon_geojson=1
+// https://nominatim.openstreetmap.org/search?city=uruburetama&street=travessa_major_sales&polygon_geojson=1
 
 export default async function search(req, res) {
     if (req.method === 'POST') {
@@ -15,21 +15,21 @@ export default async function search(req, res) {
         let url = null
 
         if (street != undefined && city != undefined) {
-            url = `https://nominatim.openstreetmap.org/search?city=${city}&street=${street}&format=geojson&polygon_geojson=1`
+            url = `https://nominatim.openstreetmap.org/search?city=${city}&street=${street}&polygon_geojson=1&format=json&addressdetails=1`
         } else if (city != undefined) {
-            url = `https://nominatim.openstreetmap.org/search?city=${city}&format=geojson&polygon_geojson=1`
+            url = `https://nominatim.openstreetmap.org/search?city=${city}&polygon_geojson=1&format=json&addressdetails=1`
             if (state != undefined) {
-                url = `https://nominatim.openstreetmap.org/search?city=${city}&state=${state}&format=geojson&polygon_geojson=1`
+                url = `https://nominatim.openstreetmap.org/search?city=${city}&state=${state}&polygon_geojson=1&format=json&addressdetails=1`
             }
 
         } else if (state != undefined) {
-            url = `https://nominatim.openstreetmap.org/search?state=${state}&format=geojson&polygon_geojson=1`
+            url = `https://nominatim.openstreetmap.org/search?state=${state}&polygon_geojson=1&format=json&addressdetails=1`
             if (country != undefined) {
-                url = `https://nominatim.openstreetmap.org/search?state=${state}&country=${country}&format=geojson&polygon_geojson=1`
+                url = `https://nominatim.openstreetmap.org/search?state=${state}&country=${country}&polygon_geojson=1&format=json&addressdetails=1`
             }
-            url = `https://nominatim.openstreetmap.org/search?state=${state}&format=geojson&polygon_geojson=1`
+            url = `https://nominatim.openstreetmap.org/search?state=${state}&polygon_geojson=1&format=json&addressdetails=1`
         } else if (country != undefined) {
-            url = `https://nominatim.openstreetmap.org/search?country=${country}&format=geojson&polygon_geojson=1`
+            url = `https://nominatim.openstreetmap.org/search?country=${country}&polygon_geojson=1&format=json&addressdetails=1`
         } else {
             res.status(400).json({ error: "nenhum parâmetro passado" })
         }

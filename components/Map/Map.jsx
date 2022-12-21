@@ -1,44 +1,23 @@
-import { TileLayer, MapContainer, GeoJSON } from "react-leaflet";
+import { TileLayer, MapContainer, GeoJSON, Marker, Popup } from "react-leaflet";
+import L from "leaflet"
 import "leaflet/dist/leaflet.css";
 import Style from "../../styles/Map.module.css"
+import { addRequestMeta } from "next/dist/server/request-meta";
 
-const Map = ({ zoom, lat, lon, geojsons }) => {
-    var color = "red"
-    const factor = Math.random() * 100
-    if (factor < 20) {
-        color = "yellow"
-    } else if (factor > 20 && factor < 40) {
-        color = "blue"
-    } else if (factor > 40 && factor < 80) {
-        color = "green"
-    } else {
-        color = "red"
-    }
+const Map = ({ zoom, lat, lon, geojsons, address }) => {
 
     const citiesStyle = {
-        fillColor: color,
+        fillColor: "blue",
         fillOpacity: 1,
         color: "black",
         weight: 1,
     };
 
-    const handdleOnEachCity = (city, layer) => {
-        var name = city.properties.display_name.split(",")
-        var name = name[0]
-
-        layer.bindPopup(name)
-
-        // switch (value) {
-        //     case 10:
-        //         layer.options.fillColor = "orange"
-        //         break;
-        //     case 100:
-        //         layer.options.fillColor = "red"
-        //         break;
-        //     default:
-        //         break;
-        // }
-    }
+    const markerIcon = new L.Icon({
+        iconUrl: "https://icons.iconarchive.com/icons/paomedia/small-n-flat/256/map-marker-icon.png",
+        iconSize: [30, 30],
+        iconAnchor: [15, 15]
+    });
 
     return (
         <MapContainer
@@ -54,9 +33,13 @@ const Map = ({ zoom, lat, lon, geojsons }) => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-
+            {(lat != 0 && lon != 0) && <Marker position={[lat, lon]} icon={markerIcon}>
+                <Popup>
+                    <b>{address.stret || address.city || address.town || address.state || address.country}</b>
+                </Popup>
+            </Marker>}
             {geojsons.map((geojson) => (
-                <GeoJSON key={1} style={citiesStyle} data={geojson} onEachFeature={handdleOnEachCity} />
+                <GeoJSON key={1} style={citiesStyle} data={geojson} />
             ))}
         </MapContainer>
     );
