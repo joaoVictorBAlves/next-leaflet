@@ -7,7 +7,8 @@ const Navbar = () => {
                 <h1>NextJS & Leaflet</h1>
             </div>
             <Link href="/">Home</Link>
-            <Link href="/ceara">Ceará</Link>
+            <Link href="/map-geojson">Geojsons</Link>
+            <Link href="/map-marker">Marcadores</Link>
         </nav>
     );
 }
