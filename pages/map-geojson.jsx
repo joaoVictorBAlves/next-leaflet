@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Map from "../components/MapGeojson";
 import SearchForm from "../components/SearchForm"
-import useFetch from "../hooks/useFetch"
 import Style from "../styles/Home.module.css";
 
 const MapGeojson = () => {
