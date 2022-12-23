@@ -1,7 +1,7 @@
 import { ListItemButton } from "@mui/material";
 import Link from "next/link"
 
-const SidebarItem = ({ children, page, root }) => {
+const SidebarItem = ({ page, root }) => {
     return (
         <ListItemButton
             component={Link}
