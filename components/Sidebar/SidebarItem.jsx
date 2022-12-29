@@ -1,11 +1,11 @@
 import { ListItemButton } from "@mui/material";
 import Link from "next/link"
 
-const SidebarItem = ({ page, root }) => {
+const SidebarItem = (props) => {
     return (
         <ListItemButton
             component={Link}
-            to={root}
+            to={props.root}
             sx={{
                 "&: hover": {
                     backgroundColor: "#CBF3F0",
@@ -14,8 +14,8 @@ const SidebarItem = ({ page, root }) => {
                 color: "#2EC4B6"
             }}
         >
-            {children}
-            {page}
+            {props.children}
+            {props.page}
         </ListItemButton>
     );
 }
