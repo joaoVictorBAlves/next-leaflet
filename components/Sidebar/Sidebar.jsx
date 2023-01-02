@@ -33,15 +33,12 @@ const Sidebar = () => {
                 <SidebarItem page={"Mapa Mundi"} root={"/"}>
                     <FaGlobeAmericas size={20} style={{ margin: 10 }} />
                 </SidebarItem>
-                {/* <SidebarItem page={"Choropleth"} root={"map-choropleth"}>
+                <SidebarItem page={"bairros"} root={"map-bairros"}>
                     <FaMap size={20} style={{ margin: 10 }} />
-                </SidebarItem> */}
+                </SidebarItem>
                 <SidebarItem page={"Toque"} root={"map-touch"}>
                     <FaHandPointUp size={20} style={{ margin: 10 }} />
                 </SidebarItem>
-                {/* <SidebarItem page={"Marcadores"} root={"map-marker"}>
-                    <FaMapMarkerAlt size={20} style={{ margin: 10 }} />
-                </SidebarItem> */}
                 <SidebarItem page={"Pesquisar"} root={"map-geojson"}>
                     <FaSearch size={20} style={{ margin: 10 }} />
                 </SidebarItem>
